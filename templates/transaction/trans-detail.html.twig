@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="-detail">
+        <h1 class="page-title">Transactiedetails</h1>
+
+        <div class="detail-card">
+            <h2>Bedrag: {{ d.amount }}</h2>
+
+            <div class="detail-info">
+                <p><strong>Categorie:</strong> {{ d.category.name }}</p>
+                <p><strong>Gebruiker ID:</strong> {{ d.user.id }}</p>
+            </div>
+
+            <a class="btn-back" href="{{ path('app_index') }}">← Terug naar overzicht</a>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="form-section">
+        <h1 class="page-title">Nieuw transactie toevoegen</h1>
+
+        {{ form_start(form, {'attr': {'class': 'styled-form'}}) }}
+        <div class="form-grid">
+            {{ form_widget(form) }}
+        </div>
+
+        <div class="centered">
+            <button type="submit" class="btn-submit">Opslaan</button>
+        </div>
+        {{ form_end(form) }}
+    </section>
+{% endblock %}

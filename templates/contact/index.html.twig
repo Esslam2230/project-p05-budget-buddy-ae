@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="hero-contact">
+        <img src="{{ asset('img/img_2.png') }}" alt="achtergrond">
+        <div class="overlay"></div>
+        <div class="hero-text-contact">
+            <h1>Neem contact met ons op</h1>
+            <p>We helpen je graag met vragen over Budget Buddy.</p>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+
+                <div class="card shadow-lg">
+                    <div class="card-body">
+                        <h4 class="text-center mb-4">Contactformulier</h4>
+
+                        {% for message in app.flashes('success') %}
+                            <div class="alert alert-success text-center">{{ message }}</div>
+                        {% endfor %}
+
+                        <form method="post">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="jouw@email.nl" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Bericht</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" placeholder="Typ hier je bericht..." required></textarea>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">Verstuur</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

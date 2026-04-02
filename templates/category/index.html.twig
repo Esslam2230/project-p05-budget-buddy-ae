@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorieën{% endblock %}
+
+{% block body %}
+    <section class="category-list">
+        <h1 class="page-title">Categorieën</h1>
+
+        <div class="card-container category-choice">
+            <div>
+                <a href="{{ path('app_category_income') }}" class="category-card income-card">
+                    <div class="category-info">
+                        <h2>💰 Inkomsten</h2>
+                        <p>Bekijk alle categorieën voor inkomsten.</p>
+                    </div>
+                </a>
+
+            </div>
+
+            <a href="{{ path('app_category_expense') }}" class="category-card expense-card">
+                <div class="category-info">
+                    <h2>💸 Uitgaven</h2>
+                    <p>Bekijk alle categorieën voor uitgaven.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+{% endblock %}

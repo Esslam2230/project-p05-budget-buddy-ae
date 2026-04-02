@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorie: {{ category.name }}{% endblock %}
+
+{% block body %}
+    <section class="category-detail">
+        <div class="detail-card">
+            <h2>{{ category.name }}</h2>
+
+            <div class="detail-info">
+                <p><strong>Type:</strong> {{ category.income_expense }}</p>
+                <p><strong>Beschrijving:</strong> {{ category.description }}</p>
+            </div>
+
+            <div class="button-group">
+                <a href="{{ path('app_category_update', {'id': category.id}) }}" class="btn btn-yellow">✏️ Update</a>
+                <a href="{{ path('app_category_delete', {'id': category.id}) }}" class="btn btn-red">🗑️ Delete</a>
+                <a href="{{ path('app_category') }}" class="btn btn-blue">← Terug naar overzicht</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

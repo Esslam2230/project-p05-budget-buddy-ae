@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="user-detail">
+        <h1 class="page-title">Gebruikersdetails</h1>
+
+        <div class="detail-card">
+            <h2>{{ f.firstname }} {{ f.lastname }}</h2>
+
+            <div class="detail-info">
+                <p><strong>Geboortedatum:</strong> {{ f.birthday | date('d-m-Y') }}</p>
+                <p><strong>Land:</strong> {{ f.country }}</p>
+                <p><strong>Adres:</strong> {{ f.address }}</p>
+                <p><strong>E-mail:</strong> {{ f.email }}</p>
+                <p><strong>Telefoonnummer:</strong> {{ f.phonenumber }}</p>
+            </div>
+
+            <a class="btn-back" href="{{ path('app_index') }}">← Terug naar overzicht</a>
+        </div>
+    </section>
+{% endblock %}

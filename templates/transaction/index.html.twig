@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Transacties van {{ user.firstname }} {{ user.lastname }}{% endblock %}
+
+{% block body %}
+    <section class="transaction-section">
+        <h2 class="page-title">Transacties van {{ user.firstname }} {{ user.lastname }}</h2>
+
+        {% if user.transacties is not empty %}
+            <table class="transaction-table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Bedrag (€)</th>
+                    <th>Categorie</th>
+                    <th>Acties</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for t in user.transacties %}
+                    <tr>
+                        <td>{{ t.id }}</td>
+                        <td>{{ t.amount }}</td>
+                        <td>
+                            {% if t.category %}
+                                {{ t.category.name }}
+                            {% else %}
+                                <em>Geen categorie</em>
+                            {% endif %}
+                        </td>
+                        <td class="action-buttons">
+                            <a href="{{ path('app_update', {'id': t.id}) }}" class="btn btn-yellow">✏️ Update</a>
+                            <a href="{{ path('app_delete', {'id': t.id}) }}" class="btn btn-blue">ℹ️ Detail</a>
+                            <a href="{{ path('app_category_delete', {'id': t.id}) }}" class="btn btn-red">🗑️ Delete</a>
+                        </td>
+{#                        <td class="action-buttons"> <a href="{{ path('', {'id': t.id}) }}" class="btn btn-blue">Details</a> <a href="{{ path('', {'id': t.id}) }}" class="btn btn-yellow">Update</a> <a href="{{ path('', {'id': t.id}) }}" class="btn btn-red">Delete</a> </td>#}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="no-data">Er zijn nog geen transacties gevonden.</p>
+        {% endif %}
+<div class="centered">
+        <a href="{{ path('app_transaction_insert') }}" class="btn-detail">
+            ➕ Nieuwe transactie toevoegen
+        </a>
+</div>
+    </section>
+
+{% endblock %}

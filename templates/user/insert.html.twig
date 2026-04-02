@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nieuwe gebruiker{% endblock %}
+
+{% block body %}
+    <section class="form-section">
+        <h1 class="page-title">Nieuwe gebruiker aanmaken</h1>
+
+        {{ form_start(form, {'attr': {'class': 'styled-form'}}) }}
+        <div class="form-grid">
+            {{ form_row(form.firstname) }}
+            {{ form_row(form.lastname) }}
+            {{ form_row(form.birthday) }}
+            {{ form_row(form.country) }}
+            {{ form_row(form.address) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.phonenumber) }}
+        </div>
+
+        {{ form_row(form.save, {'attr': {'class': 'btn-submit'}}) }}
+        {{ form_end(form) }}
+    </section>
+{% endblock %}

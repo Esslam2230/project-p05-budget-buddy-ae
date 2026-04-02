@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ type }} categorieën{% endblock %}
+
+{% block body %}
+    <section class="category-section">
+        <h2 class="page-title">{{ type }} categorieën</h2>
+        <div class="centered">
+            <a href="{{ path('app_add_category') }}" class="btn-detail">➕ Nieuwe {{ type|lower }} categorie toevoegen</a>
+        </div>
+
+        <div class="centered mt-4">
+            <a href="{{ path('app_category') }}" class="btn btn-grey pb-20">← Terug naar overzicht</a>
+        </div>
+        {% if categories is not empty %}
+            <table class="category-table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Naam</th>
+                    <th>Beschrijving</th>
+                    <th>Acties</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for c in categories %}
+                    <tr>
+                        <td>{{ c.id }}</td>
+                        <td>{{ c.name }}</td>
+                        <td>{{ c.description }}</td>
+                        <td class="action-buttons">
+                            <a href="{{ path('app_category_update', {'id': c.id}) }}" class="btn btn-yellow">✏️ Update</a>
+                            <a href="{{ path('app_category_detail', {'id': c.id}) }}" class="btn btn-blue">ℹ️ Detail</a>
+                            <a href="{{ path('app_category_delete', {'id': c.id}) }}" class="btn btn-red">🗑️ Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="no-data">Er zijn nog geen {{ type|lower }} categorieën gevonden.</p>
+        {% endif %}
+
+
+    </section>
+{% endblock %}
