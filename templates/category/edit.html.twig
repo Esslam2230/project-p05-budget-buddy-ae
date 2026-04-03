@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Categorie toevoegen{% endblock %}
+{% block title %}Categorie bewerken{% endblock %}
 
 {% block body %}
     <div class="container mt-5">
@@ -10,9 +10,7 @@
                 <div class="card shadow-sm" style="border-color: var(--color-border);">
                     <div class="card-header text-white"
                          style="background-color: var(--color-nav-bg); border-bottom: 3px solid var(--color-border);">
-                        <h4 class="mb-0">
-                            Categorie {{ category is defined ? 'bewerken' : 'toevoegen' }}
-                        </h4>
+                        <h4 class="mb-0">Categorie bewerken</h4>
                     </div>
 
                     <div class="card-body">
@@ -20,22 +18,12 @@
 
                         <div class="mb-3">
                             {{ form_label(form.name, 'Naam', {'label_attr': {'class': 'form-label'}}) }}
-                            {{ form_widget(form.name, {
-                                'attr': {
-                                    'class': 'form-control',
-                                    'style': 'border-color: var(--color-border);'
-                                }
-                            }) }}
+                            {{ form_widget(form.name, {'attr': {'class': 'form-control', 'style': 'border-color: var(--color-border);'}}) }}
                         </div>
 
                         <div class="mb-3">
                             {{ form_label(form.incomeExpense, 'Type', {'label_attr': {'class': 'form-label'}}) }}
-                            {{ form_widget(form.incomeExpense, {
-                                'attr': {
-                                    'class': 'form-select',
-                                    'style': 'border-color: var(--color-border);'
-                                }
-                            }) }}
+                            {{ form_widget(form.incomeExpense, {'attr': {'class': 'form-select', 'style': 'border-color: var(--color-border);'}}) }}
                         </div>
 
                         <div class="mb-3">

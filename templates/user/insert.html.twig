@@ -3,21 +3,116 @@
 {% block title %}Nieuwe gebruiker{% endblock %}
 
 {% block body %}
-    <section class="form-section">
-        <h1 class="page-title">Nieuwe gebruiker aanmaken</h1>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
 
-        {{ form_start(form, {'attr': {'class': 'styled-form'}}) }}
-        <div class="form-grid">
-            {{ form_row(form.firstname) }}
-            {{ form_row(form.lastname) }}
-            {{ form_row(form.birthday) }}
-            {{ form_row(form.country) }}
-            {{ form_row(form.address) }}
-            {{ form_row(form.email) }}
-            {{ form_row(form.phonenumber) }}
+                <div class="card shadow-sm" style="border-color: var(--color-border);">
+                    <div class="card-header text-white"
+                         style="background-color: var(--color-nav-bg); border-bottom: 3px solid var(--color-border);">
+                        <h4 class="mb-0">Nieuwe gebruiker aanmaken</h4>
+                    </div>
+
+                    <div class="card-body">
+                        {{ form_start(form, {'attr': {'class': 'needs-validation'}}) }}
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+                                {{ form_label(form.firstname, 'Voornaam', {'label_attr': {'class': 'form-label'}}) }}
+                                {{ form_widget(form.firstname, {
+                                    'attr': {
+                                        'class': 'form-control',
+                                        'style': 'border-color: var(--color-border);'
+                                    }
+                                }) }}
+                            </div>
+
+                            <div class="col-md-6">
+                                {{ form_label(form.lastname, 'Achternaam', {'label_attr': {'class': 'form-label'}}) }}
+                                {{ form_widget(form.lastname, {
+                                    'attr': {
+                                        'class': 'form-control',
+                                        'style': 'border-color: var(--color-border);'
+                                    }
+                                }) }}
+                            </div>
+
+                            <div class="col-md-6">
+                                {{ form_label(form.birthday, 'Geboortedatum', {'label_attr': {'class': 'form-label'}}) }}
+                                {{ form_widget(form.birthday, {
+                                    'attr': {
+                                        'class': 'form-control',
+                                        'style': 'border-color: var(--color-border);'
+                                    }
+                                }) }}
+                            </div>
+
+                            <div class="col-md-6">
+                                {{ form_label(form.country, 'Land', {'label_attr': {'class': 'form-label'}}) }}
+                                {{ form_widget(form.country, {
+                                    'attr': {
+                                        'class': 'form-select',
+                                        'style': 'border-color: var(--color-border);'
+                                    }
+                                }) }}
+                            </div>
+
+                            <div class="col-md-12">
+                                {{ form_label(form.address, 'Adres', {'label_attr': {'class': 'form-label'}}) }}
+                                {{ form_widget(form.address, {
+                                    'attr': {
+                                        'class': 'form-control',
+                                        'style': 'border-color: var(--color-border);'
+                                    }
+                                }) }}
+                            </div>
+
+                            <div class="col-md-6">
+                                {{ form_label(form.email, 'E-mail', {'label_attr': {'class': 'form-label'}}) }}
+                                {{ form_widget(form.email, {
+                                    'attr': {
+                                        'class': 'form-control',
+                                        'style': 'border-color: var(--color-border);'
+                                    }
+                                }) }}
+                            </div>
+
+                            <div class="col-md-6">
+                                {{ form_label(form.phonenumber, 'Telefoonnummer', {'label_attr': {'class': 'form-label'}}) }}
+                                {{ form_widget(form.phonenumber, {
+                                    'attr': {
+                                        'class': 'form-control',
+                                        'style': 'border-color: var(--color-border);'
+                                    }
+                                }) }}
+                            </div>
+
+                        </div>
+
+                        <button type="submit"
+                                class="btn w-100 mt-4"
+                                style="background-color: var(--color-nav-bg);
+                                   color: var(--color-accent);
+                                   border: 2px solid var(--color-border);">
+                            Opslaan
+                        </button>
+
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <a href="{{ path('app_category') }}"
+                       class="btn"
+                       style="border: 2px solid var(--color-border);
+                          color: var(--color-nav-bg);
+                          background-color: var(--color-accent);">
+                        ← Terug naar overzicht
+                    </a>
+                </div>
+
+            </div>
         </div>
-
-        {{ form_row(form.save, {'attr': {'class': 'btn-submit'}}) }}
-        {{ form_end(form) }}
-    </section>
+    </div>
 {% endblock %}

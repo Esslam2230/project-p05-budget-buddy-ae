@@ -14,12 +14,13 @@ class CategoryType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('income_expense', ChoiceType::class, [
+            ->add('incomeExpense', ChoiceType::class, [
                 'choices' => [
                     'Income' => 'Income',
                     'Expense' => 'Expense',
                 ]
             ])
+
             ->add('description')
         ;
     }
